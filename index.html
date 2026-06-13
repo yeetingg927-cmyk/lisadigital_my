@@ -896,8 +896,8 @@
         <p class="err-msg" id="err-budget">Please select a budget range.</p>
       </div>
 
-      <button type="submit" class="submit-btn">Send My Answers &nbsp;✦</button>
-      <p class="submit-note">You'll be redirected to WhatsApp with your answers pre-filled — just hit send. ♡</p>
+      <button type="submit" class="submit-btn">Send My Answers via Gmail &nbsp;✦</button>
+      <button type="button" class="submit-btn wa-btn" id="waBtn" style="margin-top:12px; background:#25A244;">Send My Answers via WhatsApp &nbsp;✦</button>
 
     </form>
 
@@ -934,6 +934,48 @@
       document.querySelectorAll('.radio-opt').forEach(r => r.classList.remove('active'));
       opt.classList.add('active');
     });
+  });
+
+  document.getElementById('waBtn').addEventListener('click', function() {
+    const nameVal = document.getElementById('f-name').value.trim();
+    const emailVal = document.getElementById('f-email').value.trim();
+    const locationVal = document.getElementById('f-location').value.trim() || 'Not specified';
+    const biznameVal = document.getElementById('f-bizname').value.trim();
+    const bizaboutVal = document.getElementById('f-bizabout').value.trim();
+    const selectedServices = [...document.querySelectorAll('#services-group input:checked')].map(i => i.value).join(', ') || 'Not specified';
+    const wordsVal = document.getElementById('f-3words').value.trim() || 'Not specified';
+    const stylesVal = [...document.querySelectorAll('.check-grid input[type=checkbox]:checked')].filter(i => !i.closest('#services-group')).map(i => i.value).join(', ') || 'Not specified';
+    const colorLoveVal = document.getElementById('f-clove').value.trim() || 'Not specified';
+    const colorAvoidVal = document.getElementById('f-cavoid').value.trim() || 'Not specified';
+    const inspoVal = document.getElementById('f-inspo').value.trim() || 'Not specified';
+    const howVal = document.getElementById('f-how').value.trim() || 'Not specified';
+    const deadlineVal = document.getElementById('f-deadline').value.trim() || 'Not specified';
+    const budgetEl = document.querySelector('input[name="budget"]:checked');
+    const budgetVal = budgetEl ? budgetEl.value : 'Not specified';
+
+    const msg = `Hi Lisa! Here are my brand identity form answers ✦
+
+*Name:* ${nameVal}
+*Email:* ${emailVal}
+*Location:* ${locationVal}
+
+*Business Name:* ${biznameVal}
+*About My Business:* ${bizaboutVal}
+
+*Services I'm interested in:* ${selectedServices}
+
+*My brand in 3 words:* ${wordsVal}
+*Visual style:* ${stylesVal}
+
+*Colours I love:* ${colorLoveVal}
+*Colours to avoid:* ${colorAvoidVal}
+*Brands that inspire me:* ${inspoVal}
+
+*How I found you:* ${howVal}
+*Deadline:* ${deadlineVal}
+*Investment range:* ${budgetVal}`;
+
+    window.location.href = 'https://wa.me/60162697913?text=' + encodeURIComponent(msg);
   });
 
   document.getElementById('brandForm').addEventListener('submit', function(e) {
