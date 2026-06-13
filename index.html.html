@@ -1,0 +1,454 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Lato:wght@300;400&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .lf-wrap {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    background: #FAF6F1;
+    min-height: 100vh;
+    padding: 0 0 60px;
+    color: #3A2A20;
+  }
+
+  .lf-hero {
+    background: #5C3D2E;
+    padding: 52px 32px 40px;
+    text-align: center;
+  }
+  .lf-hero-eyebrow {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 11px;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: #C9978A;
+    margin-bottom: 14px;
+  }
+  .lf-hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: #FAF6F1;
+    line-height: 1.3;
+    margin-bottom: 8px;
+  }
+  .lf-hero-sub {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: #C9978A;
+    margin-bottom: 28px;
+  }
+  .lf-divider-ornament {
+    color: #C9978A;
+    font-size: 18px;
+    letter-spacing: 8px;
+  }
+
+  .lf-intro {
+    background: #EDE0D4;
+    padding: 32px;
+    text-align: center;
+    border-bottom: 1px solid #C9978A;
+  }
+  .lf-intro p {
+    font-size: 14px;
+    line-height: 1.9;
+    color: #5C3D2E;
+    max-width: 560px;
+    margin: 0 auto 12px;
+  }
+  .lf-intro-sign {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: #C9978A;
+    margin-top: 16px !important;
+  }
+
+  .lf-body {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .lf-section {
+    margin-top: 40px;
+  }
+  .lf-section-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #C9978A;
+    font-weight: 400;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #EDE0D4;
+  }
+
+  .lf-field {
+    margin-bottom: 24px;
+  }
+  .lf-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: #3A2A20;
+    margin-bottom: 6px;
+    display: block;
+  }
+  .lf-label span.req {
+    color: #C9978A;
+    margin-left: 3px;
+  }
+  .lf-hint {
+    font-size: 12px;
+    color: #9A7B6A;
+    margin-bottom: 8px;
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 100%;
+    background: #fff;
+    border: 1px solid #D9C4B5;
+    border-radius: 4px;
+    padding: 10px 14px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    color: #3A2A20;
+    transition: border-color 0.2s;
+    outline: none;
+  }
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  textarea:focus {
+    border-color: #C9978A;
+  }
+  textarea { resize: vertical; min-height: 80px; line-height: 1.7; }
+
+  .lf-checkbox-group,
+  .lf-radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .lf-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #3A2A20;
+    padding: 9px 14px;
+    border: 1px solid #D9C4B5;
+    border-radius: 4px;
+    background: #fff;
+    transition: border-color 0.2s, background 0.2s;
+    user-select: none;
+  }
+  .lf-option:hover { border-color: #C9978A; background: #FAF6F1; }
+  .lf-option input { accent-color: #C9978A; width: 15px; height: 15px; flex-shrink: 0; }
+  .lf-option.selected { border-color: #C9978A; background: #FBF0EB; }
+
+  .lf-note {
+    background: #EDE0D4;
+    border-left: 3px solid #C9978A;
+    padding: 12px 16px;
+    font-size: 12.5px;
+    color: #5C3D2E;
+    line-height: 1.7;
+    border-radius: 0 4px 4px 0;
+    margin-top: 16px;
+    font-style: italic;
+  }
+
+  .lf-submit-wrap {
+    margin-top: 48px;
+    text-align: center;
+  }
+  .lf-submit {
+    background: #5C3D2E;
+    color: #FAF6F1;
+    border: none;
+    padding: 14px 48px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .lf-submit:hover { background: #C9978A; }
+  .lf-submit-note {
+    font-size: 12px;
+    color: #9A7B6A;
+    margin-top: 12px;
+    font-style: italic;
+  }
+
+  .lf-footer {
+    text-align: center;
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid #EDE0D4;
+  }
+  .lf-footer p {
+    font-size: 12px;
+    color: #9A7B6A;
+    margin-bottom: 4px;
+    font-style: italic;
+  }
+  .lf-footer-sign {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    color: #C9978A;
+    margin-top: 8px;
+  }
+
+  .lf-success {
+    display: none;
+    text-align: center;
+    padding: 60px 32px;
+  }
+  .lf-success-icon { font-size: 36px; color: #C9978A; margin-bottom: 16px; }
+  .lf-success h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: #5C3D2E;
+    margin-bottom: 12px;
+  }
+  .lf-success p { font-size: 14px; color: #9A7B6A; line-height: 1.8; }
+
+  .lf-err { border-color: #E0846A !important; }
+  .lf-err-msg { font-size: 12px; color: #C0503A; margin-top: 4px; display: none; }
+</style>
+
+<div class="lf-wrap">
+
+  <div class="lf-hero">
+    <p class="lf-hero-eyebrow">Brand Identity</p>
+    <h1 class="lf-hero-title">Let's Create a Brand<br>That Feels Truly Yours</h1>
+    <p class="lf-hero-sub">by Lisa — Creative Director & Brand Strategist</p>
+    <div class="lf-divider-ornament">✦ ✦ ✦</div>
+  </div>
+
+  <div class="lf-intro">
+    <p>Every project starts with understanding your story, your vision, and the feeling you want your brand to communicate. This form helps me get to know your business better — so I can build something that feels intentional, professional, and genuinely aligned with you.</p>
+    <p>Take your time. The more detail you share, the better I can bring your brand to life in a way that actually feels like home.</p>
+    <p>Once I receive your answers, I'll review everything carefully and get back to you within <strong>3 working days</strong>.</p>
+    <p class="lf-intro-sign">With love, Lisa ♡</p>
+  </div>
+
+  <div class="lf-body">
+    <form id="lisaForm" novalidate>
+
+      <div class="lf-section">
+        <p class="lf-section-label">01 — About You</p>
+
+        <div class="lf-field">
+          <label class="lf-label" for="f-name">Your name <span class="req">*</span></label>
+          <input type="text" id="f-name" placeholder="e.g. Sarah Lim" required>
+          <p class="lf-err-msg" id="err-name">Please enter your name.</p>
+        </div>
+
+        <div class="lf-field">
+          <label class="lf-label" for="f-email">Your email address <span class="req">*</span></label>
+          <input type="email" id="f-email" placeholder="hello@yourbrand.com" required>
+          <p class="lf-err-msg" id="err-email">Please enter a valid email.</p>
+        </div>
+
+        <div class="lf-field">
+          <label class="lf-label" for="f-location">Where are you based?</label>
+          <input type="text" id="f-location" placeholder="e.g. Kuala Lumpur, Malaysia">
+        </div>
+      </div>
+
+      <div class="lf-section">
+        <p class="lf-section-label">02 — Your Business</p>
+
+        <div class="lf-field">
+          <label class="lf-label" for="f-bizname">Business or project name <span class="req">*</span></label>
+          <input type="text" id="f-bizname" placeholder="e.g. Bloom Studio" required>
+          <p class="lf-err-msg" id="err-bizname">Please enter your business name.</p>
+        </div>
+
+        <div class="lf-field">
+          <label class="lf-label" for="f-bizabout">What does your business do? <span class="req">*</span></label>
+          <p class="lf-hint">Share as much as you like — your story, what you offer, who you serve.</p>
+          <textarea id="f-bizabout" rows="4" placeholder="Tell me about your business..." required></textarea>
+          <p class="lf-err-msg" id="err-bizabout">Please tell me a little about your business.</p>
+        </div>
+      </div>
+
+      <div class="lf-section">
+        <p class="lf-section-label">03 — Services</p>
+
+        <div class="lf-field">
+          <label class="lf-label">What can I help you with? <span class="req">*</span></label>
+          <p class="lf-hint">Select all that apply.</p>
+          <div class="lf-checkbox-group" id="services-group">
+            <label class="lf-option"><input type="checkbox" value="Complete Brand Identity"> Complete Brand Identity</label>
+            <label class="lf-option"><input type="checkbox" value="Logo Design"> Logo Design</label>
+            <label class="lf-option"><input type="checkbox" value="Brand Strategy & Positioning"> Brand Strategy & Positioning</label>
+            <label class="lf-option"><input type="checkbox" value="Packaging Design"> Packaging Design</label>
+            <label class="lf-option"><input type="checkbox" value="Product Label Design"> Product Label Design</label>
+            <label class="lf-option"><input type="checkbox" value="Social Media Branding"> Social Media Branding</label>
+            <label class="lf-option"><input type="checkbox" value="Website Creative Direction"> Website Creative Direction</label>
+            <label class="lf-option"><input type="checkbox" value="Brand Guidelines"> Brand Guidelines</label>
+            <label class="lf-option"><input type="checkbox" value="Mockup Development"> Mockup Development</label>
+            <label class="lf-option"><input type="checkbox" value="Complete Brand Development"> Complete Brand Development (All Phases)</label>
+          </div>
+          <p class="lf-err-msg" id="err-services">Please select at least one service.</p>
+          <div class="lf-note">Each service is quoted separately depending on the full project scope. If you're interested in more than one, I'll put together a custom quote based on your needs.</div>
+        </div>
+      </div>
+
+      <div class="lf-section">
+        <p class="lf-section-label">04 — Your Brand Personality</p>
+
+        <div class="lf-field">
+          <label class="lf-label" for="f-3words">Describe your brand in 3 words</label>
+          <input type="text" id="f-3words" placeholder="e.g. warm, minimal, elevated">
+        </div>
+
+        <div class="lf-field">
+          <label class="lf-label">What visual style feels most like you?</label>
+          <p class="lf-hint">Select one or more.</p>
+          <div class="lf-checkbox-group">
+            <label class="lf-option"><input type="checkbox" value="Elegant"> Elegant</label>
+            <label class="lf-option"><input type="checkbox" value="Modern"> Modern</label>
+            <label class="lf-option"><input type="checkbox" value="Minimalist"> Minimalist</label>
+            <label class="lf-option"><input type="checkbox" value="Luxury / Premium"> Luxury / Premium</label>
+            <label class="lf-option"><input type="checkbox" value="Fun & Playful"> Fun & Playful</label>
+            <label class="lf-option"><input type="checkbox" value="Cute / Soft"> Cute / Soft</label>
+            <label class="lf-option"><input type="checkbox" value="Bold & Edgy"> Bold & Edgy</label>
+            <label class="lf-option"><input type="checkbox" value="Organic & Natural"> Organic & Natural</label>
+            <label class="lf-option"><input type="checkbox" value="Feminine"> Feminine</label>
+            <label class="lf-option"><input type="checkbox" value="Professional / Corporate"> Professional / Corporate</label>
+            <label class="lf-option"><input type="checkbox" value="Vintage / Retro"> Vintage / Retro</label>
+            <label class="lf-option"><input type="checkbox" value="Artistic / Creative"> Artistic / Creative</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="lf-section">
+        <p class="lf-section-label">05 — Visual Preferences</p>
+
+        <div class="lf-field">
+          <label class="lf-label" for="f-colors-love">Colours you love</label>
+          <input type="text" id="f-colors-love" placeholder="e.g. dusty rose, warm cream, deep brown">
+        </div>
+
+        <div class="lf-field">
+          <label class="lf-label" for="f-colors-avoid">Colours you want to avoid</label>
+          <input type="text" id="f-colors-avoid" placeholder="e.g. neon, bright orange">
+        </div>
+
+        <div class="lf-field">
+          <label class="lf-label" for="f-inspo">Brands or creators that inspire you</label>
+          <p class="lf-hint">Share names, Instagram handles, websites, or Pinterest boards — anything that gives me a feel for your vision.</p>
+          <textarea id="f-inspo" rows="3" placeholder="e.g. @studiophotographe, minimalist.co, Kinfolk magazine..."></textarea>
+        </div>
+      </div>
+
+      <div class="lf-section">
+        <p class="lf-section-label">06 — Project Details</p>
+
+        <div class="lf-field">
+          <label class="lf-label" for="f-how">How did you find me, and why did you choose me?</label>
+          <textarea id="f-how" rows="3" placeholder="e.g. Instagram, a friend's recommendation..."></textarea>
+        </div>
+
+        <div class="lf-field">
+          <label class="lf-label" for="f-deadline">What's your ideal deadline?</label>
+          <input type="text" id="f-deadline" placeholder="e.g. end of July, no rush, ASAP">
+        </div>
+
+        <div class="lf-field">
+          <label class="lf-label">Investment range in mind <span class="req">*</span></label>
+          <div class="lf-radio-group" id="budget-group">
+            <label class="lf-option"><input type="radio" name="budget" value="RM 300 – 500"> RM 300 – 500</label>
+            <label class="lf-option"><input type="radio" name="budget" value="RM 500 – 800"> RM 500 – 800</label>
+            <label class="lf-option"><input type="radio" name="budget" value="RM 1,000 – 2,000"> RM 1,000 – 2,000</label>
+            <label class="lf-option"><input type="radio" name="budget" value="RM 2,000 +"> RM 2,000 +</label>
+            <label class="lf-option"><input type="radio" name="budget" value="Not sure yet"> I'm not sure yet — happy to discuss</label>
+          </div>
+          <p class="lf-err-msg" id="err-budget">Please select a budget range.</p>
+        </div>
+      </div>
+
+      <div class="lf-submit-wrap">
+        <button type="submit" class="lf-submit">Send My Answers</button>
+        <p class="lf-submit-note">I'll be in touch within 3 working days ♡</p>
+      </div>
+
+    </form>
+
+    <div class="lf-success" id="successMsg">
+      <div class="lf-success-icon">✦</div>
+      <h2>Thank you, your form has been sent!</h2>
+      <p>I've received your answers and I'm already excited to dive in.<br>I'll be in touch within 3 working days.</p>
+      <p class="lf-footer-sign" style="margin-top:20px;">With love, Lisa ♡</p>
+    </div>
+
+    <div class="lf-footer">
+      <p>© Lisa — Brand Identity & Creative Direction</p>
+      <p class="lf-footer-sign">@lisatio.writes</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.lf-option').forEach(opt => {
+    const inp = opt.querySelector('input');
+    inp.addEventListener('change', () => {
+      if (inp.type === 'radio') {
+        document.querySelectorAll(`input[name="${inp.name}"]`).forEach(r => {
+          r.closest('.lf-option').classList.remove('selected');
+        });
+      }
+      opt.classList.toggle('selected', inp.checked);
+    });
+  });
+
+  document.getElementById('lisaForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    let valid = true;
+
+    const name = document.getElementById('f-name');
+    const email = document.getElementById('f-email');
+    const bizname = document.getElementById('f-bizname');
+    const bizabout = document.getElementById('f-bizabout');
+    const services = document.querySelectorAll('#services-group input:checked');
+    const budget = document.querySelector('input[name="budget"]:checked');
+
+    const clearErr = id => { document.getElementById(id).style.display = 'none'; };
+    const showErr = id => { document.getElementById(id).style.display = 'block'; };
+
+    clearErr('err-name'); clearErr('err-email'); clearErr('err-bizname');
+    clearErr('err-bizabout'); clearErr('err-services'); clearErr('err-budget');
+    [name, email, bizname, bizabout].forEach(el => el.classList.remove('lf-err'));
+
+    if (!name.value.trim()) { name.classList.add('lf-err'); showErr('err-name'); valid = false; }
+    if (!email.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) { email.classList.add('lf-err'); showErr('err-email'); valid = false; }
+    if (!bizname.value.trim()) { bizname.classList.add('lf-err'); showErr('err-bizname'); valid = false; }
+    if (!bizabout.value.trim()) { bizabout.classList.add('lf-err'); showErr('err-bizabout'); valid = false; }
+    if (services.length === 0) { showErr('err-services'); valid = false; }
+    if (!budget) { showErr('err-budget'); valid = false; }
+
+    if (!valid) return;
+
+    document.getElementById('lisaForm').style.display = 'none';
+    document.getElementById('successMsg').style.display = 'block';
+  });
+</script>
