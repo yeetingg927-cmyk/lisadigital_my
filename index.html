@@ -961,45 +961,77 @@
 
     if (!valid) return;
 
-    const name = document.getElementById('f-name').value.trim();
-    const email = document.getElementById('f-email').value.trim();
-    const location = document.getElementById('f-location').value.trim() || 'Not specified';
-    const bizname = document.getElementById('f-bizname').value.trim();
-    const bizabout = document.getElementById('f-bizabout').value.trim();
+    const nameVal = document.getElementById('f-name').value.trim();
+    const emailVal = document.getElementById('f-email').value.trim();
+    const locationVal = document.getElementById('f-location').value.trim() || 'Not specified';
+    const biznameVal = document.getElementById('f-bizname').value.trim();
+    const bizaboutVal = document.getElementById('f-bizabout').value.trim();
     const selectedServices = [...document.querySelectorAll('#services-group input:checked')].map(i => i.value).join(', ');
-    const words = document.getElementById('f-3words').value.trim() || 'Not specified';
-    const styles = [...document.querySelectorAll('.check-grid input[type=checkbox]:checked')].filter(i => !i.closest('#services-group')).map(i => i.value).join(', ') || 'Not specified';
-    const colorLove = document.getElementById('f-clove').value.trim() || 'Not specified';
-    const colorAvoid = document.getElementById('f-cavoid').value.trim() || 'Not specified';
-    const inspo = document.getElementById('f-inspo').value.trim() || 'Not specified';
-    const how = document.getElementById('f-how').value.trim() || 'Not specified';
-    const deadline = document.getElementById('f-deadline').value.trim() || 'Not specified';
-    const budget = document.querySelector('input[name="budget"]:checked').value;
+    const wordsVal = document.getElementById('f-3words').value.trim() || 'Not specified';
+    const stylesVal = [...document.querySelectorAll('.check-grid input[type=checkbox]:checked')].filter(i => !i.closest('#services-group')).map(i => i.value).join(', ') || 'Not specified';
+    const colorLoveVal = document.getElementById('f-clove').value.trim() || 'Not specified';
+    const colorAvoidVal = document.getElementById('f-cavoid').value.trim() || 'Not specified';
+    const inspoVal = document.getElementById('f-inspo').value.trim() || 'Not specified';
+    const howVal = document.getElementById('f-how').value.trim() || 'Not specified';
+    const deadlineVal = document.getElementById('f-deadline').value.trim() || 'Not specified';
+    const budgetVal = document.querySelector('input[name="budget"]:checked').value;
 
-    const msg = `Hi Lisa! Here are my brand identity form answers ✦
+    const emailBody = `New Brand Inquiry from ${nameVal}
 
-*Name:* ${name}
-*Email:* ${email}
-*Location:* ${location}
+Name: ${nameVal}
+Email: ${emailVal}
+Location: ${locationVal}
 
-*Business Name:* ${bizname}
-*About My Business:* ${bizabout}
+Business Name: ${biznameVal}
+About the Business: ${bizaboutVal}
 
-*Services I'm interested in:* ${selectedServices}
+Services Interested In: ${selectedServices}
 
-*My brand in 3 words:* ${words}
-*Visual style:* ${styles}
+Brand in 3 Words: ${wordsVal}
+Visual Style: ${stylesVal}
 
-*Colours I love:* ${colorLove}
-*Colours to avoid:* ${colorAvoid}
-*Brands that inspire me:* ${inspo}
+Colours They Love: ${colorLoveVal}
+Colours to Avoid: ${colorAvoidVal}
+Brands That Inspire Them: ${inspoVal}
 
-*How I found you:* ${how}
-*Deadline:* ${deadline}
-*Investment range:* ${budget}`;
+How They Found Lisa: ${howVal}
+Deadline: ${deadlineVal}
+Investment Range: ${budgetVal}`;
 
-    const waUrl = 'https://wa.me/60162697913?text=' + encodeURIComponent(msg);
-    window.location.href = waUrl;
+    const formData = {
+      access_key: '2532e0d9-7d8b-4b28-b825-e2d7dddb62c7',
+      subject: 'New Brand Inquiry — ' + nameVal,
+      from_name: nameVal,
+      email: emailVal,
+      message: emailBody
+    };
+
+    const submitBtn = document.querySelector('.submit-btn');
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (data.success) {
+        document.getElementById('brandForm').style.display = 'none';
+        document.getElementById('successScreen').style.display = 'block';
+        document.getElementById('successScreen').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        submitBtn.textContent = 'Send My Answers ❆';
+        submitBtn.disabled = false;
+        alert('Something went wrong. Please try again.');
+      }
+    })
+    .catch(() => {
+      submitBtn.textContent = 'Send My Answers ❆';
+      submitBtn.disabled = false;
+      alert('Something went wrong. Please try again.');
+    });
   });
 </script>
 </body>
